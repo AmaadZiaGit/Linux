@@ -1,0 +1,58 @@
+## Package Management:
+
+### What is a Package?
+
+Package is bundle containing: 
+
+- Software itself
+- Configuration files
+- Documentation
+- Information about dependencies (other packages it needs)
+
+Instead of downland installers from the internet, Linux uses packages from trusted repositories
+
+### What is a Package Manager?
+
+Package Manager is a tool that:
+
+- Downloads packages from repositiroes
+- Installs them correctly
+- Tracks what’s installed
+- Handles updates
+- Manages dependencies automatically
+
+Every distro has different package management (Ubuntu has APT (Advanced package Tools) different ones as the other using ) 
+
+### What are Repositories?
+
+Theses are servers that store packages. When you use apt install it downloads from these servers. 
+
+## Sudo Command:
+
+### What is Sudo?
+
+Sudo - Superuser do
+
+This command gives admin privileges. Essentially things that regular users cant do like modify files or install software. 
+
+### APT Commands:
+
+Sudo apt update - This downloads the latest list of available packages from the repositories. But doesn’t install anything.
+
+Sudo apt upgrade - This upgrades everything to its latest version
+
+Both commands can be combined using  &&. 
+
+### Search for Packages:
+
+apt search htop - This search packages (htop is a package)
+
+sudo apt purge - This removes everything including the config files
+
+### See whats installed:
+
+apt list - -installed - This shows all the packages that has been installed 
+
+Filter it:
+
+apt list - -installed  | grep htop
