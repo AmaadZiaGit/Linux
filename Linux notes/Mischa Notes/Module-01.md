@@ -1,4 +1,0 @@
-1. Introduction
-2 Ways of Running Linux:
-   1. Hardware - Using a bare metal machine to run Linux 
-   2. Virtual Machine - Using a hypervisor which is essential a mini Linux machine
