@@ -1,0 +1,54 @@
+## More Command:
+
+Echo - This prints whatever you give it. (e.g. echo ‘Hello World’ = Hello World
+
+Cat - This show what your running (You can also go deep into any files)
+
+uptime - This shows how long your system been running
+
+touch - Create a empty file
+
+rm - Removes the file (Make sure you think twice before deleting)
+
+history - Shows you all the command you have ran
+
+which - Shows location of the programecho
+
+## What is Linux?
+
+When the VM is running, there is a program called the kernel this controls everything.
+
+The Kernel controls: 
+
+- The hardware
+- Manages files
+- run programs
+- Keeps tracks of users and their permissions
+
+You cant talk to the kernel directly as it understand a different language which is low-level. 
+
+### The Shell:
+
+The shell is a program that bridges the gap. Essentially a translator between you and the operating system. The shell: 
+
+- presents you with prompt
+- Accepts human-readable commands
+- Translates into action the kernel performs
+- Shows Results
+
+Make sure you always are using bash as it is the default. 
+
+echo $shell - Shows what shell your using as they are many types.
+
+### Terminal Vs Shell:
+
+Terminal - This is the window - the application which displays the text and accepts keyboard input. 
+
+### Prompt:
+
+This is the prompt. It tells you:
+
+- username - Who is logged in
+- hostname - computer your on
+- ~ - Tells you where you are (~ means home directory)
+- $ - This means normal user (# means root or admin)
