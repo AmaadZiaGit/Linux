@@ -1,0 +1,114 @@
+## The Root Directory
+
+The top of the file is / - this is called root ( don’t mix this with root users)
+
+![image.png](attachment:6df7536e-c66f-4b52-8952-c892877eaca5:image.png)
+
+### Absolute vs Relative Path
+
+Absolute path - Starts from root (/), always work regardless where you are. (/home/username/documents/file.txt)
+
+Relative path - Start from your current location (documents/file.txt (if you in home/username)
+
+Special shortcuts:
+
+- .  = Current Directory
+- ‘..’ = Parent Directory (one level up)
+- ~ = Home Directory
+- cd - = cd with dash takes you back to your previous location
+
+ls -l  : This command  with formats like this (drwxr-xr-x 2 Amaad951 Amaad951 4096 Jan 23 19:23 Desktop)
+
+The first character tells you the type:
+
+- - = regular file
+- d = directory
+- l = symbolic link
+
+ls -a : This command shows all the files even the hidden ones (files starting with .)
+
+Coming both (ls -la) you get long format + hidden files (files starting with).
+
+ls -lah : This add more of a human-readable size
+
+tree : This show the directory as a tree (very useful)
+
+tree -L 2 (Limit to 2 levels deep.)
+
+### Working with files and Directories:
+
+Create a directory:
+
+mkdir - This command makes directories 
+
+mkdir -p projects/work/2025  -  This command creates a nested directories. The -p flag creates parent directories as needed. 
+
+Copy files:
+
+cp - copy command (if you do cp notes.txt projects/) - This copies notes files into the project directory 
+
+-r with cp - This copies the directory and everything in it
+
+Move and rename files: 
+
+mv - This is the move command. You can move files into different directories 
+
+mv -i  - This helps when you want to overwrite a files as it let you know without it very dangerous as it can overwrite files.
+
+Delete Files:
+
+rm - This command removes files but gives no confirmation, Nothing. Files just gone.
+
+rm -i - This command gives confirmation before deleting
+
+rm -r  - This delete a directory and everything in it. 
+
+rmdir - This moves directories in a safe way. As it won’t let you delete directory that aren’t empty.
+
+### Finding Things:
+
+Find files by name:
+
+find - This command where you place your files. (find /home -name (*.txt) - This find all txt files located in home. 
+
+Find by type:
+
+-type d  - This can also be added (find /var -type d -name “log”) to find directories d = directories.
+
+-type f  - This find files ending in .sh
+
+Find by size:
+
+-size +10M - this finds files larger then 10MB (find /var/log -size +10m)
+
+sudo !! - When running a command and sudo is needed this can be ran instead of running the whole command again 
+
+locate  - This command is much faster then the find command because it uses a database. But sometime the database can be outdated 
+
+### Location of commands:
+
+Which ls = /usr/bin/ls (This shows command’s executable is located)
+
+command -v : Portable way:
+
+-v mkdir - This command much similar to which but more reliable. Also works in scripts w
+
+here which might not. 
+
+Type - This command will let you know if something is an alias, bulletin or external command, Much more informative than which.
+
+### The Man Command:
+
+man - This is the manual command. This is official documentation.
+
+Navigate inside man:
+
+space or f = next page
+
+b = previous page 
+
+/pattern = search for text (/backuo)
+
+n = next search result
+
+q =quit
