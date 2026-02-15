@@ -1,0 +1,94 @@
+## Reading and Viewing Files:
+
+Display entire file using the cat command  (cat /etc/hostname)
+
+Cat prints the entire file to the screen. Short for “concatenate” - it can also combine multiple files.
+
+### Reading through large files:
+
+less - this command helps you scroll through files. (less /var/log/syslog)
+
+Navigation controls:
+
+- Space or f - Forward one page
+- b - Back one page
+- up or down arrow - Line by line
+- g - Go to the beginning
+- G - Go to the end
+- / - Search
+- n - Next result
+- q = quit
+
+### View first lines: Head
+
+Head command allow you to view the first 10 lines by default. (head /var/log/syslog)
+
+if you want to see more then 10 you can do:
+
+head -20 var/log/syslog
+
+### View last few lines: Tail
+
+Same concept applies as head command for the tail command. (tail /var/log/syslog)
+
+tail -f /var/log/syslog - This -f means follow. New lines appear as they are written in the file. This is how you watch logs live. Ctrl + C to stop following/.
+
+Essential for debugging. When something goes wrong, you tail -f the log file, reproduce the problem and watch errors appear. 
+
+## Searching File contents:
+
+### Intro to grep:
+
+grep - This command searches for patterns in files. (grep “error” var/log/syslog)
+
+### Case-incentive Search:
+
+grep -i “error” /var/log/syslog - The i flag means ignores case. Matches “error”, “ERROR”
+
+grep -n flag shows line number (grep -n “error” var/log/syslog)
+
+### Invert match:
+
+grep -v “comment” config.txt - The -v flag shows lines that don’t match. Useful for filtering out noise. 
+
+### Search recursively:
+
+grep -r “passwrd” /etc/ - The -r flag searches all the files in a directory recursively 
+
+-c - This can be used to count 
+
+### Show Content:
+
+grep -B 2 -A 2 “errorE /var/log/syslog
+
+- -B 2 shows 2 lines before and A shows after
+
+### Regular Expressions:
+
+grep “ (uparrow)root” /etc/passwrd - (Up-arrow symbol don’t write up-arrow)
+
+This command means start with. Find lines starting with root 
+
+grep “bash$” /etc/passwd - This means ends with, so lines ending with “bash”
+
+[0-9] matches any digits. Finds ‘user0’, user 1 and etc  
+
+### Combine with pipes:
+
+cat /var/log/syslog | grep “error” 
+
+## File information:
+
+file /etc/passwrd - The file command examines the content to determine the file type. Doesn't reply in extension.
+
+Stat - This command shows size, permission, owner, timestamps and more.
+
+wc - This command is a word count command (-l = just lines and -w jsut words and -c for just charecters) 
+
+## Directories;
+
+du -sh /var/log - this is disk usage.  The -s flag summaries, -h makes it human - readable 
+
+du -h —max-depth-1 /var - The /var is a subdirectory 
+
+df -h = This command shows disk free. shows all mounted filesystems and their space usage
