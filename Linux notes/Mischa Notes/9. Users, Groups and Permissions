@@ -1,0 +1,126 @@
+## User and Groups:
+
+### Who am i?
+
+whoami -This command shows who your are.
+
+who - This shows more information about who your are (who is logged in and ip)
+
+w - show more information (how long you been idle and etc)
+
+id - This shows :
+
+- uid - Your user id number
+- gid - Your primary group ID
+- groups - All groups you belong to
+
+### Understanding Groups:
+
+Groups allow multiple users to share access to files
+
+cat /etc/group - This shows the group your a member of. (Formatted like this groupname:password:gid:members)
+
+Common Groups:
+
+sudo - can use sudo command
+
+adm - Can read log files
+
+www-data - Web server group
+
+docker - Can use docker 
+
+### Creating a user:
+
+sudo adduser testuser - This command will create a user named testuser  
+
+### Deleting a user:
+
+sudo deluser testuser - This command will delete the user.
+
+sudo deluser - - remove-home testuser - This removes the directory
+
+### **Reading ls -l Output**
+
+```
+ls -l /etc/passwd
+```
+
+Output:
+
+```
+-rw-r--r-- 1 root root 1842 Dec 10 14:30 /etc/passwd
+```
+
+Let’s break this down:
+
+```
+-rw-r--r--  1  root  root  1842  Dec 10 14:30  /etc/passwd
+│├──┤├──┤├──┤ │  │     │     │         │           │
+│ │   │   │   │  │     │     │         │           └── Filename
+│ │   │   │   │  │     │     │         └── Modification date
+│ │   │   │   │  │     │     └── Size in bytes
+│ │   │   │   │  │     └── Group owner
+│ │   │   │   │  └── User owner
+│ │   │   │   └── Number of hard links
+│ │   │   └── Others permissions
+│ │   └── Group permissions
+│ └── Owner permissions
+└── File type (- = file, d = directory, l = link)
+```
+
+### Changing Permissions:
+
+Chmod - This command is used to change permissions
+
+ 
+
+```
+chmod u+x script.sh    # Add execute for user (owner)
+chmod g+w file.txt     # Add write for group
+chmod o-r file.txt     # Remove read for others
+chmod a+r file.txt     # Add read for all (a = all)
+chmod u+rwx file.txt   # Add read, write, execute for user
+```
+
+Symbols:
+
+- `u` = user (owner)
+- `g` = group
+- `o` = others
+- `a` = all
+- `+` = add permission
+- = remove permission
+- `=` = set exactly
+
+NumberPermissionsMeaning
+
+7 rwx Read + Write + Execute
+
+6 rw-Read + Write
+
+5 r-x Read + Execute
+
+4 r– Read only 
+
+3 -wx Write + Execute
+
+2-w-Write only
+
+1–x Execute only0—No permissions
+
+### Changing Ownership:
+
+chown - This command can be user ti change ownership. ( sudo chown newowner file.txt)
+
+to chnage group you have to add :newgroup next to the owner
+
+chgrp - To chnage group you need this command.
+
+### Sudo infomation:
+
+sudo -k : this reset the timer to enter password again for root
+
+sudo -i  - this allows you to enter superuser mode 
+
+sudo su - To switch user
